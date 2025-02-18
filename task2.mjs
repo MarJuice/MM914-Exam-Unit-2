@@ -1,6 +1,6 @@
 // Function test:
 
-import array from "./arrays.json" with { type: "json" }
+import array from "./arrays.json" with { type: "json" };
 
 console.log(flatten(array));
 

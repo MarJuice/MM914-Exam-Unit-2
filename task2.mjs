@@ -1,8 +1,8 @@
 // Function test:
 
-import array from "./arrays.json" with { type: "json" };
+import arrays from "./arrays.json" with { type: "json" };
 
-console.log(flatten(array));
+console.log(flatten(arrays));
 
 //#region TASK: Flatten those numbers
 

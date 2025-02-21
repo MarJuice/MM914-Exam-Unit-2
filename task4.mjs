@@ -18,7 +18,7 @@ console.log("The number of books written before 2004: ", find("publication_year"
 console.log("ISBN of books by Neil Gaiman: ", find("author", "Neil Gaiman", "isbn"));
 
 // List books alphabetically assending or descending
-
+console.log("Books sorted alphabetically: ", sort("title", "asc"));
 
 // List books chronologically assending or descending
 
@@ -60,14 +60,51 @@ function find(type, value, options) {
             if (book[type] == value) {
                 matches.push(book[options]);
             }
-        } else {
-            return "Invalid search";
-        }
+        } 
     }
 
     if (count > 0) return count;
 
     return matches;
+}
+
+function sort(by, order) {
+    let sorted = [];
+
+    if (by == "title") {
+        sorted = books.sort((a, b) => {
+            if (a.title < b.title) {
+                return -1;
+            }
+            if (a.title > b.title) {
+                return 1;
+            }
+        });
+    } else if (by == "publication_year") {
+        sorted = books.sort((a, b) => {
+            if (a.publication_year < b.publication_year) {
+                return -1;
+            }
+            if (a.publication_year > b.publication_year) {
+                return 1;
+            }
+        });
+    } else if (by == "author") {
+        sorted = books.sort((a, b) => {
+            if (a.author < b.author) {
+                return -1;
+            }
+            if (a.author > b.author) {
+                return 1;
+            }
+        });
+    }
+
+    if (order == "asc") {
+        return sorted;
+    } else if (order == "desc") {
+        return sorted.reverse();
+    } 
 }
 
 //#endregion 
